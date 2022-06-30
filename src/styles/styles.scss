@@ -1,0 +1,209 @@
+$colorGray: #cad1de;
+$interactive-01: rgba(241, 106, 123, 0.7);
+$focus-01: rgba(241, 106, 123, 0.3);
+
+body {
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: #f8f8f8;
+}
+
+@mixin flexCenter($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+  margin: auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.md {
+  max-width: 900px;
+}
+
+.lg {
+  max-width: 1200px;
+}
+
+.container {
+  @include flexCenter(column);
+}
+
+.users-list-container {
+  @include flexCenter(column);
+  margin-top: 32px;
+  .item {
+    margin: 16px;
+  }
+}
+.user-profile-container {
+  @include flexCenter(column);
+  margin-top: 32px;
+  .item {
+    margin: 16px;
+  }
+}
+
+.user-profile-repos-container {
+  @include flexCenter(column);
+}
+
+.user-card-container {
+  @include flexCenter(row);
+  justify-content: space-between;
+  margin: 24px;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0px 4px 24px rgba(60, 85, 165, 0.1);
+  background-color: white;
+  .item {
+    margin: 0 24px;
+  }
+  span {
+    font-weight: bold;
+  }
+}
+
+.user-repo-card-container {
+  @include flexCenter(row);
+  justify-content: space-between;
+  border-radius: 16px;
+  margin: 24px 0;
+  padding: 24px;
+  box-shadow: 0px 4px 24px rgba(60, 85, 165, 0.1);
+  .item {
+    margin: 16px;
+  }
+}
+
+.user-info-container {
+  @include flexCenter(column);
+  .item {
+    margin: 4px;
+  }
+  p {
+    font-weight: bold;
+  }
+  span {
+    font-weight: normal;
+  }
+}
+
+.user-image {
+  border-radius: 8px;
+}
+
+// ------------------------ FORM INPUT
+
+.form-input {
+  color: black;
+  font-size: 18px;
+  padding: 8px;
+  border-radius: 16px;
+  border: 1px solid $colorGray;
+  &:focus {
+    outline: none;
+  }
+}
+
+// ------------------------ LOADING SPINNER
+
+.cds-loading-spinner > circle {
+  fill: none;
+  stroke-width: 8;
+  stroke-dasharray: 270;
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
+  transform-origin: center;
+  stroke: $interactive-01;
+  animation: dash 1.5s ease-in-out infinite, colors 3s ease-in-out infinite;
+  margin: 16px;
+}
+.cds-loading-spinner {
+  display: inline-block;
+  margin: auto;
+  width: 88px;
+  height: 88px;
+  r: 44px;
+  animation: rotate 1.5s linear infinite;
+
+  &.-sm {
+    display: inline;
+    margin: 0;
+    width: 24px;
+    height: 24px;
+
+    circle {
+      stroke-dasharray: 270;
+      stroke-width: 12px;
+      r: 36px;
+    }
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(270deg);
+  }
+}
+@keyframes colors {
+  0% {
+    stroke: $interactive-01;
+  }
+
+  10% {
+    stroke: $focus-01;
+  }
+
+  100% {
+    stroke: $interactive-01;
+  }
+}
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 266;
+  }
+
+  50% {
+    stroke-dashoffset: (266/4);
+    transform: rotate(135deg);
+  }
+
+  100% {
+    stroke-dashoffset: 266;
+    transform: rotate(450deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(135deg);
+    -ms-transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+    transform: rotate(135deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
