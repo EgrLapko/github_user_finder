@@ -5,7 +5,7 @@ import LinkComponent from "components/common/LinkComponent";
 import UserRepoCard from "./UserRepoCard";
 
 interface UserProfileReposProps {
-  repos: RepoType[];
+  repos: any;
 }
 
 const UserProfileRepos: React.FC<UserProfileReposProps> = ({ repos }) => {
@@ -14,7 +14,7 @@ const UserProfileRepos: React.FC<UserProfileReposProps> = ({ repos }) => {
       <h2>No repos here... how sad</h2>
     </div>
   ) : (
-    repos.map((repo) => {
+    repos.map((repo: RepoType) => {
       return (
         <LinkComponent key={repo.id} href={repo.html_url} target="_blank">
           <UserRepoCard repo={repo} />

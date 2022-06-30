@@ -17,7 +17,8 @@ const UserCard: React.FC<UserCardProps> = ({ user }) => {
           className="user-image"
           height={100}
           width={100}
-          src={user?.avatar_url}
+          src={user.avatar_url}
+          alt={user.avatar_url}
         />
       </div>
       <div>

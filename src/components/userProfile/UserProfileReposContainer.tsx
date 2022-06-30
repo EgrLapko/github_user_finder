@@ -43,7 +43,7 @@ const UserProfileReposContainer: React.FC<UserProfileReposContainerProps> = ({
       });
       return setUserRepos(filteredRepos);
     }
-  }, [value, setValue]);
+  }, [value, repos, setValue]);
 
   return (
     <div className="user-profile-repos-container">
